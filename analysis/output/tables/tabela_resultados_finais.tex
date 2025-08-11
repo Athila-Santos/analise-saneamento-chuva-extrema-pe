@@ -1,0 +1,131 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                                                              %
+%               ARQUIVO LaTeX - MODELO COMPLETO PARA TABELA EM PAISAGEM          %
+%                                                                              %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% --- 1. CLASSE DO DOCUMENTO E PACOTES ESSENCIAIS ---
+% Define o tipo de documento (artigo), tamanho da fonte padrão (12pt) e papel (a4)
+\documentclass[12pt, a4paper]{article}
+
+% --- Pacotes para codificação e idioma ---
+% Permite o uso de caracteres acentuados diretamente no código (ç, ã, é)
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+% Define o idioma para português do Brasil (traduções automáticas e hifenização)
+\usepackage[brazil]{babel}
+
+% --- Pacotes para a formatação da tabela ---
+% Pacote para criar páginas em modo paisagem (landscape)
+\usepackage{pdflscape}
+% Pacote para incluir e manipular imagens e caixas (usado para \resizebox)
+\usepackage{graphicx}
+% Pacote para criar linhas de tabelas com visual profissional
+\usepackage{booktabs}
+
+% --- Pacotes para formatação geral (recomendado) ---
+% Pacote para ajustar as margens da página
+\usepackage{geometry}
+\geometry{a4paper, margin=2.5cm} % Define margens de 2.5cm em todos os lados
+
+
+% --- Informações do Documento (Opcional) ---
+\title{Exemplo de Tabela em Página de Paisagem}
+\author{Seu Nome Aqui}
+\date{\today}
+
+
+% --- 2. INÍCIO DO DOCUMENTO ---
+\begin{document}
+
+% Cria a página de título com as informações acima
+\maketitle
+
+\section{Introdução}
+Este é um exemplo de um documento LaTeX. O texto normal, como este parágrafo, é exibido em modo retrato (vertical).
+
+A seguir, a tabela de resultados será apresentada. Como ela é muito larga, foi colocada em uma página separada e em modo paisagem (horizontal) para garantir que todo o conteúdo seja visível e bem formatado.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                  AQUI COMEÇA A TABELA EM PAISAGEM                    %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{landscape} % Inicia o ambiente que coloca tudo dentro dele em modo paisagem
+
+% Usar [p] é uma boa prática para tabelas de página inteira.
+% O LaTeX tentará colocar em uma página separada.
+\begin{table}[p]
+\centering
+\caption{Resultados da Análise de Regressão} % Adicionei uma legenda à tabela
+
+% O comando \resizebox ajusta o tamanho da tabela para a largura do texto.
+% O '!' mantém a proporção original de altura e largura.
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{@{\extracolsep{5pt}}lccccccccc}
+\toprule % Linha superior profissional (pacote booktabs)
+ & \multicolumn{1}{c}{(1) Referência} & \multicolumn{1}{c}{(2) Choque (Intens.)} & \multicolumn{1}{c}{(3) Saneam. (Água)} & \multicolumn{1}{c}{(4) Saneam. (Elo Fraco)} & \multicolumn{1}{c}{(5) Desfecho (Arbov.)} & \multicolumn{1}{c}{(6) Desfecho (PIB)} & \multicolumn{1}{c}{(7) Dinâmica Temp.} & \multicolumn{1}{c}{(8) Desfecho (Esquisto.)} & \multicolumn{1}{c}{(9) Desfecho (Febre Tif.)}  \\
+\cmidrule(lr){2-2} \cmidrule(lr){3-3} \cmidrule(lr){4-4} \cmidrule(lr){5-5} \cmidrule(lr){6-6} \cmidrule(lr){7-7} \cmidrule(lr){8-8} \cmidrule(lr){9-9} \cmidrule(lr){10-10} % Linhas parciais para os cabeçalhos
+ & (1) & (2) & (3) & (4) & (5) & (6) & (7) & (8) & (9) \\
+\midrule % Linha intermediária (pacote booktabs)
+ Cob. Água & & & 0.001$^{}$ & & -0.006$^{}$ & & & & 0.001$^{}$ \\
+& & & (0.002) & & (0.007) & & & & (0.001) \\
+ Cob. Esgoto & 0.002$^{}$ & 0.002$^{}$ & & & & 0.001$^{**}$ & 0.001$^{}$ & -0.004$^{}$ & \\
+& (0.002) & (0.002) & & & & (0.001) & (0.002) & (0.005) & \\
+ Constante & 0.991$^{*}$ & 1.007$^{*}$ & 0.952$^{*}$ & 0.964$^{*}$ & 3.578$^{**}$ & 9.297$^{***}$ & 1.226$^{**}$ & -6.188$^{***}$ & 0.418$^{*}$ \\
+& (0.540) & (0.540) & (0.541) & (0.540) & (1.686) & (0.016) & (0.564) & (1.497) & (0.245) \\
+ Densidade Pop. & -0.001$^{***}$ & -0.001$^{***}$ & -0.001$^{***}$ & -0.001$^{***}$ & 0.001$^{}$ & -0.000$^{}$ & -0.001$^{***}$ & -0.000$^{}$ & 0.000$^{}$ \\
+& (0.000) & (0.000) & (0.000) & (0.000) & (0.001) & (0.000) & (0.000) & (0.001) & (0.000) \\
+ Dias Chuva Extrema & 0.000$^{}$ & & 0.000$^{}$ & 0.000$^{}$ & -0.003$^{**}$ & -0.000$^{}$ & 0.000$^{}$ & -0.002$^{}$ & -0.000$^{}$ \\
+& (0.000) & & (0.000) & (0.000) & (0.001) & (0.000) & (0.000) & (0.001) & (0.000) \\
+ Chuva * Esgoto & 0.000$^{*}$ & & & & & & & & \\
+& (0.000) & & & & & & & & \\
+ Volume * Esgoto & & 0.000$^{}$ & & & & & & & \\
+& & (0.000) & & & & & & & \\
+ Chuva * Água & & & 0.000$^{***}$ & & & & & & \\
+& & & (0.000) & & & & & & \\
+ Chuva * Elo Fraco & & & & 0.000$^{**}$ & & & & & \\
+& & & & (0.000) & & & & & \\
+ Chuva * Água (Arbov.) & & & & & 0.000$^{**}$ & & & & \\
+& & & & & (0.000) & & & & \\
+ Chuva * Esgoto (PIB) & & & & & & -0.000$^{}$ & & & \\
+& & & & & & (0.000) & & & \\
+ Chuva * Esgoto (Lag) & & & & & & & 0.000$^{*}$ & & \\
+& & & & & & & (0.000) & & \\
+ Chuva * Esgoto (Esquisto.) & & & & & & & & -0.000$^{}$ & \\
+& & & & & & & & (0.000) & \\
+ Chuva * Água (Febre Tif.) & & & & & & & & & 0.000$^{}$ \\
+& & & & & & & & & (0.000) \\
+ ln(PIB pc) & -0.058$^{}$ & -0.059$^{}$ & -0.055$^{}$ & -0.054$^{}$ & 0.052$^{}$ & & -0.086$^{}$ & 0.789$^{***}$ & -0.043$^{}$ \\
+& (0.058) & (0.058) & (0.058) & (0.058) & (0.180) & & (0.060) & (0.160) & (0.026) \\
+ ln(Taxa Lepto) [t-1] & & & & & & & -0.013$^{}$ & & \\
+& & & & & & & (0.017) & & \\
+ Saneam. (Elo Fraco) & & & & 0.001$^{}$ & & & & & \\
+& & & & (0.002) & & & & & \\
+ Volume Chuva Extrema & & 0.000$^{}$ & & & & & & & \\
+& & (0.000) & & & & & & & \\
+\midrule % Linha intermediária (pacote booktabs)
+ Observations & 3700 & 3700 & 3700 & 3700 & 3700 & 3700 & 3515 & 3700 & 3700 \\
+ N. of groups & 185 & 185 & 185 & 185 & 185 & 185 & 185 & 185 & 185 \\
+ $R^2$ & 0.007 & 0.007 & 0.010 & 0.007 & 0.003 & 0.003 & 0.006 & 0.008 & 0.002 \\
+ Residual Std. Error & 0.041 (df=3491) & 0.040 (df=3491) & 0.047 (df=3491) & 0.041 (df=3491) & 0.088 (df=3491) & 0.007 (df=3492) & 0.036 (df=3306) & 0.119 (df=3491) & 0.009 (df=3491) \\
+\bottomrule % Linha inferior profissional (pacote booktabs)
+\multicolumn{10}{l}{\textit{Nota: Efeitos fixos de município e ano incluídos em todos os modelos.}} \\
+\multicolumn{10}{l}{\textit{Erros padrão entre parênteses. $^{*}$p$<$0.1; $^{**}$p$<$0.05; $^{***}$p$<$0.01}} \\
+\end{tabular}
+} % Fecha o \resizebox
+\end{table}
+
+\end{landscape} % Termina o ambiente de paisagem
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                     FIM DA TABELA EM PAISAGEM                        %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\section{Conclusão}
+Após a apresentação da tabela, o documento retorna automaticamente para a orientação de retrato padrão para as seções e textos subsequentes, como esta conclusão.
+
+
+% --- 3. FIM DO DOCUMENTO ---
+\end{document}
