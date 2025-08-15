@@ -1,4 +1,4 @@
-# SANEAMENTO COMO POLÍTICA DE ADAPTAÇÃO CLIMÁTICA: UMA ANÁLISE DOS DESDOBRAMENTOS NA SAÚDE EM PERNAMBUCO NO PERÍODO DE 2002 E 2021
+# SANEAMENTO PODE SER POLÍTICA DE ADAPTAÇÃO CLIMÁTICA? DESDOBRAMENTOS PARA A SAÚDE EM PERNAMBUCO ENTRE 2002 E 2021
 
 Este repositório contém os dados e códigos para o projeto de pesquisa que investiga a eficácia da infraestrutura de saneamento básico como uma política de adaptação aos impactos de eventos de chuva extrema na saúde pública. O estudo utiliza um painel de dados em nível municipal para os 185 municípios do estado de Pernambuco, cobrindo o período de 2002 a 2021.
 
